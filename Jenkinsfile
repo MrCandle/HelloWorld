@@ -3,7 +3,7 @@ node {
       git branch: 'master', url: params.git_repo
     }
     stage('Build Docker Image') {
-        sh(script: "docker build", returnStdout: true)
+        sh(script: "docker build .", returnStdout: true)
     }
     stage('deploy') {
         azureWebAppPublish azureCredentialsId: params.azure_cred_id,
