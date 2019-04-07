@@ -3,7 +3,6 @@ node {
       git branch: 'master', url: params.git_repo
     }
     stage('Build Docker Image') {
-        agent { dockerfile true }
         sh(script: "docker build", returnStdout: true)
     }
     stage('deploy') {
