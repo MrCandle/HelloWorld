@@ -9,7 +9,6 @@ node {
         sh(script: "docker push ${params.acr_loginserver}/${params.web_image_name}", returnStdout: true)
     }
     stage('Deploy to Kubernetes') {
-        sh(script: "kubectl set image deployment/hello-world hello-world=${params.acr_loginserver}/${params.web_image_name} --kubeconfig /var/lib/jenkins/config
-", returnStdout: true)
+        sh(script: "kubectl set image deployment/hello-world hello-world=${params.acr_loginserver}/${params.web_image_name} --kubeconfig /var/lib/jenkins/config", returnStdout: true)
     }
 }
